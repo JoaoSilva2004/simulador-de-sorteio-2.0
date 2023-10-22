@@ -1,0 +1,201 @@
+/***** Importações *****/
+@import url('https://fonts.googleapis.com/css2?family=Mukta&display=swap');
+
+/***** Formatação Geral *****/
+:root {
+    --main-color: #3479f8;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+a, a:visited, a:focus {
+    color: inherit;
+    text-decoration: none;
+}
+
+ul {
+    list-style: none;
+}
+
+h1 {
+    font-size: 2.75rem;
+}
+
+body {
+    background: #232527;
+    color: #ffffff;
+    font-family: 'Mukta', sans-serif;
+    width: 100vw;
+    height: 100%;
+    overflow: hidden;
+}
+
+/***** Cabeçalho *****/
+header#header {
+    width: 100%;
+}
+
+header#header main {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    margin-top: 50px;
+    box-sizing: border-box;
+}
+
+header#header main a {
+    position: absolute;
+    right: 20px;
+    padding: 10px;
+    user-select: none;
+}
+
+header#header main a img {
+    transition: all 0.5s;
+}
+
+header#header main a:hover img {
+    transform: rotateZ(45deg);
+    filter: brightness(0.8);
+}
+
+header#header nav#navigation-bar {
+    width: 100%;
+    margin-top: 15px;
+}
+
+header#header nav#navigation-bar ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 20px;
+    height: 100%;
+    font-size: 1.25em;
+}
+
+header#header nav#navigation-bar ul li {
+    transition: all 0.3s;
+    border-bottom: 3px solid #ffffff00;
+    padding: 15px 15px 3px;
+    box-sizing: border-box;
+}
+
+header#header nav#navigation-bar ul li:hover {
+    border-bottom-color: #ffffffff;
+    margin: 0 5px;
+    transform: scale(1.05);
+}
+
+header#header nav#navigation-bar ul li.selected {
+    border-bottom-color: var(--main-color);
+}
+
+/***** Conteúdo principal *****/
+section#container {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-start;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/***** Abas *****/
+section section#tab-viewer {
+    width: 95%;
+    max-width: 700px;
+    height: 500px;
+    border: 1px solid #505050;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+section section#tab-viewer > div.tabs {
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    justify-content: flex-start;
+    width: calc(100% * 3);
+}
+
+div.container-tab {
+    display: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 40px;
+    text-align: center;
+    width: 100%;
+    min-height: 50%;
+    margin: 50px 0;
+    box-sizing: border-box;
+}
+
+div.container-tab {
+    
+}
+
+#roulette {
+    width: 400px;
+    height: 40px;
+    border: 1px solid #505050;
+    border-radius: 30px;
+    background: #505050;
+    overflow: hidden;
+}
+
+#roulette ul {
+    width: 100%;
+    transition: margin 0.5s;
+    margin-top: calc(-41px * 0);
+}
+
+#roulette ul li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 80%;
+    height: 40px;
+    font-size: 1.5em;
+    margin: 0 auto;
+    text-transform: uppercase;
+}
+
+#roulette ul li:not(last-child) {
+    border-bottom: 1px solid #777777;
+}
+
+div.container-tab input {
+    font-weight: bold;
+    font-family: inherit;
+    font-size: 1.2em;
+    color: #ffffff;
+    border: none;
+    padding: 5px 30px;
+    border-radius: 4px;
+    background: var(--main-color);
+}
+
+/***** Itens *****/
+section aside#items {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    width: 95%;
+    max-width: 300px;
+    border: 1px solid #505050;
+    padding: 20px 0;
+}
+
+section aside#items table {
+
+}

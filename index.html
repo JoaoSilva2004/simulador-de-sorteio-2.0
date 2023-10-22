@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+
+<html lang="pt-br">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <title>Simulador de Sorteio</title>
+    <link rel="icon" href="./images/logo.png">
+    <link rel="stylesheet" type="text/css" href="./css/style.css">
+    <script src="./js/script.js" defer></script>
+</head>
+
+<body style="background: #232527; color: #ffffff;">
+    <header id="header">
+        <main>
+            <h1>Simulador de Sorteio</h1>
+            <a><img src="./images/icon-gear.png"></a>
+        </main>
+        <nav id="navigation-bar">
+            <ul>
+                <li class=""><a href="#edit-tab">EDITAR</a></li>
+                <li class="selected"><a href="#raffle-tab">SORTEAR</a></li>
+                <li class=""><a href="#history-tab">HISTÓRICO</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="container">
+        <section id="tab-viewer">
+            <div class="tabs">
+                <div class="container-tab" id="edit-tab">
+                    <form id="">
+
+                    </form>
+                </div>
+
+                <div class="container-tab selected" id="raffle-tab">
+                    <h2>Você obteve:</h2>
+                    <div id="roulette">
+                        <ul>
+                            <li><span>Item 1</span></li>
+                            <li>Item 2</li>
+                            <li>Item 3</li>
+                            <li>Item 4</li>
+                            <li>Item 5</li>
+                            <li>Item 6</li>
+                            <li>Item 7</li>
+                            <li>Item 8</li>
+                        </ul>
+                    </div>
+                    <input type="button" value="SORTEAR">
+                </div>
+
+                <div class="container-tab" id="history-tab">
+
+                </div>
+            </div>
+        </section>
+
+        <aside id="items">
+            <h2>ITENS DO SORTEIO</h2>
+            <table id="items-table">
+                <tr>
+                    <th>Item</th>
+                    <th>Probabilidade</th>
+                </tr>
+                <tr>
+                    <td>Item</td>
+                    <td>1%</td>
+                </tr>
+            </table>
+        </aside>
+    </section>
+
+    <footer id="footer">
+
+    </footer>
+</body>
+
+</html>
