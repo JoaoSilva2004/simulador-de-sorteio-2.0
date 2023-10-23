@@ -4,6 +4,24 @@
 /***** Formatação Geral *****/
 :root {
     --main-color: #3479f8;
+    --main-color-select: #183d7e;
+    --highlight-1: #c9e4fd;
+    --highlight-2: #1a1b50;
+}
+
+*::-webkit-scrollbar {
+    width: 7px;
+}
+
+*::-webkit-scrollbar-track {
+    background: #242424;
+    border-radius: 10px;
+    outline: 1px solid #505050;
+}
+
+*::-webkit-scrollbar-thumb {
+    background-color: #505050;
+    border-radius: 10px;
 }
 
 * {
@@ -28,9 +46,20 @@ body {
     background: #232527;
     color: #ffffff;
     font-family: 'Mukta', sans-serif;
-    width: 100vw;
+    width: 100%;
     height: 100%;
-    overflow: hidden;
+}
+
+/***** Animações *****/
+@keyframes switch-tab {
+    from {
+        display: none;
+        opacity: 0;
+    }
+    to {
+        display: flex;
+        opacity: 1;
+    }
 }
 
 /***** Cabeçalho *****/
@@ -80,16 +109,22 @@ header#header nav#navigation-bar ul {
 }
 
 header#header nav#navigation-bar ul li {
-    transition: all 0.3s;
+    transition: all 0.25s;
     border-bottom: 3px solid #ffffff00;
     padding: 15px 15px 3px;
     box-sizing: border-box;
+    cursor: pointer;
+    user-select: none;
 }
 
 header#header nav#navigation-bar ul li:hover {
     border-bottom-color: #ffffffff;
     margin: 0 5px;
     transform: scale(1.05);
+}
+
+header#header nav#navigation-bar ul li:active {
+    color: var(--main-color);
 }
 
 header#header nav#navigation-bar ul li.selected {
@@ -104,11 +139,13 @@ section#container {
     justify-content: center;
     gap: 30px;
     margin-top: 20px;
+    padding: 0 20px;
 }
 
 /***** Abas *****/
 section section#tab-viewer {
-    width: 95%;
+    width: 100%;
+    height: 100%;
     max-width: 700px;
     height: 500px;
     border: 1px solid #505050;
@@ -121,25 +158,31 @@ section section#tab-viewer > div.tabs {
     flex-wrap: nowrap;
     align-items: center;
     justify-content: flex-start;
-    width: calc(100% * 3);
+    width: 100%;
+    height: 100%;
 }
 
 div.container-tab {
+    opacity: 0;
     display: none;
-    display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
-    gap: 40px;
+    justify-content: center;
+    gap: 30px;
     text-align: center;
     width: 100%;
+    height: 100%;
     min-height: 50%;
-    margin: 50px 0;
+    padding: 50px 5px;
     box-sizing: border-box;
+    transition: all 0.5s;
+    animation: 0.5s linear 0.5s 1 reverse switch-tab;
 }
 
-div.container-tab {
-    
+div.container-tab.selected {
+    display: flex;
+    opacity: 1;
+    animation: 0.5s linear 0.5s 1 normal switch-tab;
 }
 
 #roulette {
@@ -172,15 +215,34 @@ div.container-tab {
     border-bottom: 1px solid #777777;
 }
 
-div.container-tab input {
+input.button {
     font-weight: bold;
     font-family: inherit;
     font-size: 1.2em;
     color: #ffffff;
     border: none;
     padding: 5px 30px;
+    border: 3px double #ffffff00;
     border-radius: 4px;
     background: var(--main-color);
+    transition: all 0.25s;
+}
+
+input.button:hover {
+    background-color: var(--main-color-select);
+    color: var(--highlight-1);
+    transition: all 0.25s;
+}
+
+input.button:active {
+    border: 3px double var(--highlight-1);
+    transition: all 0.25s;
+}
+
+#history-tab > div, #items > div {
+    width: 80%;
+    padding: 0 10px;
+    overflow-y: auto;
 }
 
 /***** Itens *****/
@@ -190,12 +252,48 @@ section aside#items {
     align-items: center;
     justify-content: flex-start;
     gap: 15px;
-    width: 95%;
+    width: 100%;
     max-width: 300px;
+    max-height: 500px;
     border: 1px solid #505050;
-    padding: 20px 0;
+    padding: 20px 20px;
+    box-sizing: border-box;
 }
 
-section aside#items table {
+/***** Tabelas *****/
+.rounded-table {
+    width: 100%;
+    text-align: center;
+    -webkit-border-horizontal-spacing: 1px;
+    -webkit-border-vertical-spacing: 5px;
+}
 
+.rounded-table tr {
+    color: var(--highlight-2);
+    background: var(--highlight-1);
+    max-height: 50px;
+}
+
+
+.rounded-table tr:not(last-child) {
+    margin-bottom: 5px;
+}
+
+.rounded-table tr:has(th) {
+    color: #ffffff;
+    background: var(--main-color-select);
+}
+
+.rounded-table tr > th, .rounded-table tr > td {
+    padding: 0 10px;
+}
+
+.rounded-table tr :first-child {
+    border-top-left-radius: 20px;
+    border-bottom-left-radius: 20px;
+}
+
+.rounded-table tr :last-child {
+    border-top-right-radius: 20px;
+    border-bottom-right-radius: 20px;
 }
